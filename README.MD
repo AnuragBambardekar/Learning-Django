@@ -26,19 +26,19 @@ OR <br>
 - Go to http://127.0.0.1:8000/ <br>
 ![Django server started](/images/ss1.png?raw=true "Django server started")
 
-The development server automatically reloads Python code for each request as needed. You don’t need to restart the server for code changes to take effect. However, some actions like adding files don’t trigger a restart, so you’ll have to restart the server in these cases.
+The development server automatically reloads Python code for each request as needed. You don’t need to restart the server for code changes to take effect. However, some actions like adding files don’t trigger a restart, so you’ll have to restart the server in these cases. <br>
 
 - To create your app, make sure you’re in the same directory as manage.py and type this command: <br>
 ```python manage.py startapp polls```
 
 - Write your first view <br>
-Open the file polls/views.py and write the code.
+Open the file polls/views.py and write the code. <br>
 
 - To call the view, we need to map it to a URL <br>
-Create a file called urls.py and write the code.
+Create a file called urls.py and write the code. <br>
 
 - Point the root URLconf at the polls.urls module <br>
-In mysite/urls.py, add an import for django.urls.include and insert an include() in the urlpatterns list.
+In mysite/urls.py, add an import for django.urls.include and insert an include() in the urlpatterns list. <br>
 
 - You have now wired an index view into the URLconf. Verify it’s working with the following command: <br>
 ```python manage.py runserver```
@@ -47,6 +47,27 @@ In mysite/urls.py, add an import for django.urls.include and insert an include()
 
 ### Part 2
 - Open mysite/settings.py
+Change the DB settings if required. Set the Timezone as per your location, also have a look at the INSTALLED_APPS. <br>
+- Then, these applications make use of at least one database table, though, so we need to create the tables in the database before we can use them. To do that, run the following command: <br>
+```python manage.py migrate```
+- Creating Models <br>
+-- In our poll app, we’ll create two models: Question and Choice. A Question has a question and a publication date. A Choice has two fields: the text of the choice and a vote tally. Each Choice is associated with a Question. <br>
+-- Edit the polls/models.py file <br>
+Create the models for Question and Choice
+- Activating Models <br>
+The PollsConfig class is in the polls/apps.py file, get the dotted path ```polls.apps.PollsConfig``` <br>
+Edit the mysite/settings.py file and add the dotted path under INSTALLED_APPS. <br>
+Then run the command: ```python manage.py makemigrations polls``` <br>
+By running makemigrations, you’re telling Django that you’ve made some changes to your models (in this case, you’ve made new ones) and that you’d like the changes to be stored as a migration.
+- The sqlmigrate command takes migration names and returns their SQL: <br>
+```python manage.py sqlmigrate polls 0001```
+- Now, run migrate again to create those model tables in your database: <br>
+```python manage.py migrate```
+- Playing with the API <br>
+-- Invoke it <br>
+```python manage.py shell``` <br>
+-- Explore it <br>
+
 
 
 ### References
