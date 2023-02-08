@@ -12,7 +12,9 @@
 -- A public site that lets people view polls and vote in them. <br>
 -- An admin site that lets you add, change, and delete polls. <br>
 
-### Procedure
+## Procedure
+
+### Part 1
 - Auto-generate some code that establishes a Django project <br>
 ```django-admin startproject mysite``` <br>
 - Change Directory to mysite folder <br>
@@ -42,6 +44,9 @@ In mysite/urls.py, add an import for django.urls.include and insert an include()
 ```python manage.py runserver```
 
 - Go to http://localhost:8000/polls/ in your browser, and you should see the text “Hello, world. You’re at the polls index.”, which you defined in the index view.
+
+### Part 2
+- Open mysite/settings.py
 
 
 ### References
