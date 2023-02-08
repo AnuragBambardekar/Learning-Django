@@ -47,7 +47,7 @@ In mysite/urls.py, add an import for django.urls.include and insert an include()
 
 ### Part 2
 - Open mysite/settings.py
-Change the DB settings if required. Set the Timezone as per your location, also have a look at the INSTALLED_APPS. <br>
+Change the DB settings if required. Set the Timezone as per your location (TIME_ZONE = 'EST'), also have a look at the INSTALLED_APPS. <br>
 - Then, these applications make use of at least one database table, though, so we need to create the tables in the database before we can use them. To do that, run the following command: <br>
 ```python manage.py migrate```
 - Creating Models <br>
@@ -67,6 +67,21 @@ By running makemigrations, you’re telling Django that you’ve made some chang
 -- Invoke it <br>
 ```python manage.py shell``` <br>
 -- Explore it <br>
+From the shell, create questions and choices and explore the CRUD features.
+- Creating an admin user <br>
+```python manage.py createsuperuser``` <br>
+Username: admin <br>
+Email address: admin@example.com <br>
+The final step is to enter your password. You will be asked to enter your password twice. <br>
+-- Start the development server <br>
+```python manage.py runserver``` <br>
+-- Go to  http://127.0.0.1:8000/admin/ <br>
+-- Login using the credentials <br>
+-- Make the poll app modifiable in the admin [Edit the polls/admin.py file] <br>
+-- Explore the free admin functionality <br>
+-- Click “Questions”. Now you’re at the “change list” page for questions. This page displays all the questions in the database and lets you choose one to change it. <br>
+-- Can also view the history of changes made.
+
 
 
 
