@@ -1,6 +1,6 @@
 # Learning about Django Web Framework
 
-### Installing
+### Installing Django
 ```pip install Django```
 
 ### Checking Version
