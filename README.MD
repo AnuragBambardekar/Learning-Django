@@ -14,7 +14,7 @@
 
 ## Procedure
 
-### Part 1
+### Part 1 - Basic Request & Response Flow
 - Auto-generate some code that establishes a Django project <br>
 ```django-admin startproject mysite``` <br>
 - Change Directory to mysite folder <br>
@@ -45,19 +45,22 @@ In mysite/urls.py, add an import for django.urls.include and insert an include()
 
 - Go to http://localhost:8000/polls/ in your browser, and you should see the text “Hello, world. You’re at the polls index.”, which you defined in the index view.
 
-### Part 2
+### Part 2 - Models & the Admin site
 - Open mysite/settings.py
 Change the DB settings if required. Set the Timezone as per your location (TIME_ZONE = 'EST'), also have a look at the INSTALLED_APPS. <br>
 - Then, these applications make use of at least one database table, though, so we need to create the tables in the database before we can use them. To do that, run the following command: <br>
 ```python manage.py migrate```
 - Creating Models <br>
--- In our poll app, we’ll create two models: Question and Choice. A Question has a question and a publication date. A Choice has two fields: the text of the choice and a vote tally. Each Choice is associated with a Question. <br>
--- Edit the polls/models.py file <br>
-Create the models for Question and Choice
+    1. In our poll app, we’ll create two models: Question and Choice. A Question has a question and a publication date. A Choice has two fields: the text of the choice and a vote tally. Each Choice is associated with a Question. <br>
+
+    2. Edit the polls/models.py file <br>
+    Create the models for Question and Choice
 - Activating Models <br>
-The PollsConfig class is in the polls/apps.py file, get the dotted path ```polls.apps.PollsConfig``` <br>
-Edit the mysite/settings.py file and add the dotted path under INSTALLED_APPS. <br>
-Then run the command: ```python manage.py makemigrations polls``` <br>
+    1. The PollsConfig class is in the polls/apps.py file, get the dotted path ```polls.apps.PollsConfig``` <br>
+
+    2. Edit the mysite/settings.py file and add the dotted path under INSTALLED_APPS. <br>
+
+    3. Then run the command: ```python manage.py makemigrations polls``` <br>
 By running makemigrations, you’re telling Django that you’ve made some changes to your models (in this case, you’ve made new ones) and that you’d like the changes to be stored as a migration.
 - The sqlmigrate command takes migration names and returns their SQL: <br>
 ```python manage.py sqlmigrate polls 0001```
@@ -73,15 +76,46 @@ From the shell, create questions and choices and explore the CRUD features.
 Username: admin <br>
 Email address: admin@example.com <br>
 The final step is to enter your password. You will be asked to enter your password twice. <br>
--- Start the development server <br>
-```python manage.py runserver``` <br>
--- Go to  http://127.0.0.1:8000/admin/ <br>
--- Login using the credentials <br>
--- Make the poll app modifiable in the admin [Edit the polls/admin.py file] <br>
--- Explore the free admin functionality <br>
--- Click “Questions”. Now you’re at the “change list” page for questions. This page displays all the questions in the database and lets you choose one to change it. <br>
--- Can also view the history of changes made.
+    1. Start the development server <br>
+    ```python manage.py runserver```
 
+    2. Go to  http://127.0.0.1:8000/admin/ <br>
+
+    3. Login using the credentials <br>
+
+    4. Make the poll app modifiable in the admin [Edit the polls/admin.py file] <br>
+
+    5. Explore the free admin functionality <br>
+
+    6. Click “Questions”. Now you’re at the “change list” page for questions. This page displays all the questions in the database and lets you choose one to change it. <br>
+
+    7. Can also view the history of changes made. <br>
+
+### Part 3 - Views & Templates
+- In our poll application, we’ll have the following four views: <br>
+
+    1. Question “index” page – displays the latest few questions. <br>
+    2. Question “detail” page – displays a question text, with no results but with a form to vote. <br>
+    3. Question “results” page – displays results for a particular question. <br>
+    4. Vote action – handles voting for a particular choice in a particular question. <br>
+
+- Write some more views in polls/views.py <br>
+- Wire these new views into the polls/urls.py module by adding the respective path() calls. <br>
+- Run the server again ```python manage.py runserver``` <br>
+- Try "/polls/", "/polls/34/results/" and "/polls/34/vote/" <br>
+- Write views that actually do something by editing polls/views.py <br>
+- Use Django’s template system to separate the design from Python by creating a template that the view can use. <br>
+- Create templates directory inside polls directory, and inside it create index.html file. <br>
+- Edit the index.html file with desired HTML code. <br>
+- Update our index view function in polls/views.py to use the template. <br>
+- Load the page by pointing your browser at '/polls/' .<br>
+- A shortcut in Django to return an HttpResponse object of a given template rendered with given context is by using render() . <br>
+- Raising a 404 Error: The view raises the Http404 exception if a question with the requested ID doesn’t exist. <br>
+- Above method requires to import Http404 and then use try...catch method. There exists a shortcut too in Django using get_object_or_404 . <br>
+- Update the polls/detail.html file to render the view as desired (i.e., Display Questions alongwith choices). <br>
+- Remove the hardcoded URLs in templates. <br>
+- Edit the URLs in polls/urls.py if required. <br>
+- Add namespaces to your URLconf. In the polls/urls.py file, go ahead and add an app_name = 'polls', to set the application namespace. <br>
 
 
 
