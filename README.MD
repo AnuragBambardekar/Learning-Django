@@ -43,7 +43,6 @@ In mysite/urls.py, add an import for django.urls.include and insert an include()
 
 - Go to http://localhost:8000/polls/ in your browser, and you should see the text “Hello, world. You’re at the polls index.”, which you defined in the index view.
 
-TEST
 
 ### References
 - https://docs.djangoproject.com/en/4.1/intro/tutorial01/
