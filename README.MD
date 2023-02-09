@@ -126,7 +126,9 @@ The final step is to enter your password. You will be asked to enter your passwo
 - Use generic views provided by Django and amend the URLconf and Views.
 
 ### Part 5 - Testing
-- Creating Automated Tests for our Application
+- Creating Automated Tests for our Application <br>
+- Identifying bugs. ```python manage.py shell``` <br>
+- Create a test to expose the bug. (Automated test) in polls/tests.py <br>
 
 
 ### References
