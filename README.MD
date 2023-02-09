@@ -134,6 +134,18 @@ The final step is to enter your password. You will be asked to enter your passwo
 - Run the test again. <br>
 - Add some more comprehensive tests. <br>
 - Run the test again. <br>
+- Test a View: ```python manage.py shell``` <br>
+- Setup_test_environment() <br>
+- Amend the get_queryset() method and change it so that it also checks the date by comparing it with timezone.now() <br>
+- Test our new view <br>
+- For Testing, we need to create Questions with dates in the past and future, and checking that only those that have been published are listed. So, modify the IndexView, DetailView and ResultsView queryset() to reflect the same. <br>
+- Create the Tests in polls/tests.py <br>
+- Add more Tests as required for all the views [IndexView, DetailView and ResultsView]. <br>
+
+
+### Part 6 - Static Files
+
+
 
 ### References
 - https://docs.djangoproject.com/en/4.1/intro/tutorial01/

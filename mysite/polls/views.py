@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
+from django.utils import timezone
 
 from .models import Choice, Question
 
@@ -18,17 +19,31 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
         """Return the last five published questions."""
-        return Question.objects.order_by('-pub_date')[:5]
+        # return Question.objects.order_by('-pub_date')[:5] #bug
+
+        # eturns a queryset containing Questions whose pub_date is less than or equal to - that is, earlier than or equal to - timezone.now.
+        return Question.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')[:5] 
 
 
 class DetailView(generic.DetailView):
     model = Question
     template_name = 'polls/detail.html' # uses the template "polls/question_detail.html"
+    
+    def get_queryset(self):
+        """
+        Excludes any questions that aren't published yet.
+        """
+        return Question.objects.filter(pub_date__lte=timezone.now()) # lte = less than or equal to
 
 
 class ResultsView(generic.DetailView):
     model = Question
     template_name = 'polls/results.html'
+    def get_queryset(self):
+        """
+        Excludes any questions that aren't published yet.
+        """
+        return Question.objects.filter(pub_date__lte=timezone.now()) # lte = less than or equal to
 
 
 def vote(request, question_id):

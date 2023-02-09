@@ -12,7 +12,7 @@ class Question(models.Model):
     
     def was_published_recently(self):
         now = timezone.now()
-        return now - datetime.timedelta(days=1) <= self.pub_date <= now
+        return now - datetime.timedelta(days=1) <= self.pub_date <= now # Setting a pub_date in the future should mean that the Question is published at that moment, but invisible until then
         # return self.pub_date >= timezone.now() - datetime.timedelta(days=1) #Bug
 
 
