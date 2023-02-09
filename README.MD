@@ -163,5 +163,13 @@ The final step is to enter your password. You will be asked to enter your passwo
 - Copy the ```admin/base_site.html``` from ```django/contrib/admin/templates``` to the newly created admin directory. <br>
 - Also, similarly modify the index.html file, if desired. <br>
 
+
+![Django Poll App](/images/ss2.png?raw=true "Django Poll App")
+![Django Poll App](/images/ss3.png?raw=true "Django Poll App")
+![Django Poll App](/images/ss4.png?raw=true "Django Poll App")
+![Django Poll App](/images/ss5.png?raw=true "Django Poll App")
+![Django Poll App](/images/ss6.png?raw=true "Django Poll App")
+![Django Poll App](/images/ss7.png?raw=true "Django Poll App")
+
 ### References
 - https://docs.djangoproject.com/en/4.1/intro/tutorial01/
