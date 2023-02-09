@@ -127,9 +127,13 @@ The final step is to enter your password. You will be asked to enter your passwo
 
 ### Part 5 - Testing
 - Creating Automated Tests for our Application <br>
-- Identifying bugs. ```python manage.py shell``` <br>
+- Identifying bugs: ```python manage.py shell``` <br>
 - Create a test to expose the bug. (Automated test) in polls/tests.py <br>
-
+- Run the tests: ```python manage.py test polls``` <br>
+- Fixing the bug: Amend the method in models.py <br>
+- Run the test again. <br>
+- Add some more comprehensive tests. <br>
+- Run the test again. <br>
 
 ### References
 - https://docs.djangoproject.com/en/4.1/intro/tutorial01/
