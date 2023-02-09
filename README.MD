@@ -150,6 +150,18 @@ The final step is to enter your password. You will be asked to enter your passwo
 - Run the server and observe changes. <br>
 
 
+### Part 7 - Customizing the Admin site
+- Customize the admin form. <br>
+- Go to admin.py, add forms, fieldsets, etc. <br>
+- It’d be better if you could add a bunch of Choices directly when you create the Question object. SO, edit the polls/admin.py accordingly. <br>
+- Also, edit the "Select question to change" page. Add Date Published column and published recently columns. Also, add filter by date/past 7 days/monnth/year functionality. Additionally a search functionality could be added. All this is done in admin.py file. <br>
+- Customize the admin look and feel using Django's template system. <br>
+- Open mysite/settings.py file and edit the DIRS option in the TEMPLATES setting. <br>
+``` 'DIRS': [BASE_DIR / 'templates'], ``` <br>
+- Create admin directory inside templates. <br>
+- Run this command: ```python -c "import django; print(django.__path__)"``` <br>
+- Copy the ```admin/base_site.html``` from ```django/contrib/admin/templates``` to the newly created admin directory. <br>
+- Also, similarly modify the index.html file, if desired. <br>
 
 ### References
 - https://docs.djangoproject.com/en/4.1/intro/tutorial01/
