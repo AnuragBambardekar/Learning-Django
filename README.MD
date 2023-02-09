@@ -144,6 +144,10 @@ The final step is to enter your password. You will be asked to enter your passwo
 
 
 ### Part 6 - Static Files
+- Create a directory "static" inside polls directory. <br>
+- Then, create style.css inside static folder. <br>
+- Modify the index.html file to include style.css <br>
+- Run the server and observe changes. <br>
 
 
 
