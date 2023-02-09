@@ -117,7 +117,13 @@ The final step is to enter your password. You will be asked to enter your passwo
 - Edit the URLs in polls/urls.py if required. <br>
 - Add namespaces to your URLconf. In the polls/urls.py file, go ahead and add an app_name = 'polls', to set the application namespace. <br>
 
-
+### Part 4
+- Update our poll detail template (“polls/detail.html”), so that the template contains an HTML ```<form>``` element. <br>
+- Create a Django view that handles the submitted data and does something with it. <br>
+- Edit the polls/views.py and create a real implemntation of vote() and results() function. <br>
+- Create a polls/results.html template. <br>
+- Now, go to /polls/1/ in your browser and vote in the question. You should see a results page that gets updated each time you vote. If you submit the form without having chosen a choice, you should see the error message. <br>
+- Use generic views provided by Django and amend the URLconf and Views.
 
 ### References
 - https://docs.djangoproject.com/en/4.1/intro/tutorial01/
