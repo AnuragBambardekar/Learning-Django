@@ -117,7 +117,7 @@ The final step is to enter your password. You will be asked to enter your passwo
 - Edit the URLs in polls/urls.py if required. <br>
 - Add namespaces to your URLconf. In the polls/urls.py file, go ahead and add an app_name = 'polls', to set the application namespace. <br>
 
-### Part 4
+### Part 4 - Forms & Generic Views
 - Update our poll detail template (“polls/detail.html”), so that the template contains an HTML ```<form>``` element. <br>
 - Create a Django view that handles the submitted data and does something with it. <br>
 - Edit the polls/views.py and create a real implemntation of vote() and results() function. <br>
